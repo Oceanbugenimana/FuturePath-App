@@ -1,0 +1,6 @@
+{
+  "name": "FuturePath AI",
+  "description": "Futuristic AI career simulator, personalized learning roadmap generator, salary projection engine, and intelligent mentor for teenagers and students globally.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
