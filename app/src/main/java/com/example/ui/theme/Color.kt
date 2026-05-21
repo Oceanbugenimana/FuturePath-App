@@ -14,7 +14,7 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 object ThemeSource {
-    var activeTheme by mutableStateOf("default") // default, emerald, solar, crimson, amethyst
+    var activeTheme by mutableStateOf("default") // default, emerald, solar, crimson, amethyst, ice, vaporwave
 
     fun selectTheme(theme: String) {
         activeTheme = theme
@@ -25,6 +25,8 @@ object ThemeSource {
         "solar" -> Color(0xFF080603)    // Solar Amber Warm Black
         "crimson" -> Color(0xFF080202)  // Crimson Blood Black
         "amethyst" -> Color(0xFF060309) // Velvet Amethyst Dark Purple
+        "ice" -> Color(0xFF020608)      // Nordic Frost Deep Ocean Black
+        "vaporwave" -> Color(0xFF090306) // Sunset Velvet Dark Purple
         else -> Color(0xFF05060B)       // Default Cyber Midnight
     }
 
@@ -33,6 +35,8 @@ object ThemeSource {
         "solar" -> Color(0xFF141009)
         "crimson" -> Color(0xFF140808)
         "amethyst" -> Color(0xFF0F0814)
+        "ice" -> Color(0xFF091216)
+        "vaporwave" -> Color(0xFF160912)
         else -> Color(0xFF0E111A)
     }
 
@@ -41,6 +45,8 @@ object ThemeSource {
         "solar" -> Color(0xFFF59E0B)   // Solar Gold Primary
         "crimson" -> Color(0xFFEF4444) // Crimson Red Primary
         "amethyst" -> Color(0xFF8B5CF6) // Velvet Violet/Purple Primary
+        "ice" -> Color(0xFF00E5FF)      // Nordic Frozen Cyan Primary
+        "vaporwave" -> Color(0xFFFF007F) // Retro Cyber Pink Primary
         else -> Color(0xFF6366F1)       // default Indigo Primary Accents
     }
 
@@ -49,6 +55,8 @@ object ThemeSource {
         "solar" -> Color(0xFFFBBF24)   // Amber Yellow secondary
         "crimson" -> Color(0xFFFCA5A5) // Soft Coral secondary
         "amethyst" -> Color(0xFFC084FC) // Orchid Magenta secondary
+        "ice" -> Color(0xFF00E5FF)      // Frozen Teal secondary
+        "vaporwave" -> Color(0xFF00FFFF) // Sunset Cyan secondary
         else -> Color(0xFF3B82F6)       // default Royal Blue secondary
     }
 
@@ -57,6 +65,8 @@ object ThemeSource {
         "solar" -> Color(0xFFD97706)
         "crimson" -> Color(0xFFB91C1C)
         "amethyst" -> Color(0xFFEC4899)
+        "ice" -> Color(0xFF059669)
+        "vaporwave" -> Color(0xFFFFB300)
         else -> Color(0xFFEC4899)
     }
 }

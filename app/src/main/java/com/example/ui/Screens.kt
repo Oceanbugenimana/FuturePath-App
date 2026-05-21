@@ -823,7 +823,9 @@ fun DashboardScreen(viewModel: FuturePathViewModel, onMenuClick: (String) -> Uni
                         Triple("emerald", "Jade Forest Emerald", Color(0xFF10B981)),
                         Triple("solar", "Helios Solar Amber", Color(0xFFF59E0B)),
                         Triple("crimson", "Sleek Crimson Red", Color(0xFFEF4444)),
-                        Triple("amethyst", "Royal Velvet Amethyst", Color(0xFF8B5CF6))
+                        Triple("amethyst", "Royal Velvet Amethyst", Color(0xFF8B5CF6)),
+                        Triple("ice", "Nordic Ice Frost (Teal & Cyan)", Color(0xFF00E5FF)),
+                        Triple("vaporwave", "Vaporwave Sunset (Fuchsia & Gold)", Color(0xFFFF007F))
                     )
 
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
