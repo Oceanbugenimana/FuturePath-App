@@ -25,6 +25,7 @@ data class UserProfile(
     val learningHabits: String = "Self-paced tutorials, coding challenges",
     val timeCommitment: String = "15-20 hours/week part-time",
     val isPremium: Boolean = false,
+    val favoriteTheme: String = "default",
     val xp: Int = 350,
     val level: Int = 2,
     val streak: Int = 5,
@@ -127,7 +128,7 @@ interface FuturePathDao {
 
 @Database(
     entities = [UserProfile::class, ChatMessage::class, CareerSimulation::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(Converters::class)

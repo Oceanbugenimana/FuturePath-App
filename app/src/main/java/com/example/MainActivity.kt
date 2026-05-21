@@ -37,6 +37,10 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme {
                 val currentScreen by viewModel.currentScreen.collectAsState()
                 val userProfile by viewModel.userProfile.collectAsState()
+
+                LaunchedEffect(userProfile.favoriteTheme) {
+                    ThemeSource.selectTheme(userProfile.favoriteTheme)
+                }
                 
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),

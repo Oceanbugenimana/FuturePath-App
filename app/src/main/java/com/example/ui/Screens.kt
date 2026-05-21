@@ -796,6 +796,96 @@ fun DashboardScreen(viewModel: FuturePathViewModel, onMenuClick: (String) -> Uni
             }
         }
 
+        // --- SECTION 4: CUSTOMIZE FAVORITE COLOR PALETTE ---
+        item {
+            Text("🎨 CHOOSE FAVORITE ACCENT COLOR", color = NeonTeal, fontSize = 13.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
+        }
+
+        item {
+            CyberGlassCard(modifier = Modifier.fillMaxWidth()) {
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Text(
+                        text = "Immersive Interface Palettes",
+                        color = StellarWhite,
+                        fontSize = 15.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        text = "Select your favorite accent color combination. This will dynamically update the backgrounds, glows, indicators, and buttons across the entire FuturePath AI experience.",
+                        color = CyberGray,
+                        fontSize = 11.sp,
+                        lineHeight = 16.sp
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+
+                    val themesList = listOf(
+                        Triple("default", "Neon Cyber Blue (Default)", Color(0xFF3B82F6)),
+                        Triple("emerald", "Jade Forest Emerald", Color(0xFF10B981)),
+                        Triple("solar", "Helios Solar Amber", Color(0xFFF59E0B)),
+                        Triple("crimson", "Sleek Crimson Red", Color(0xFFEF4444)),
+                        Triple("amethyst", "Royal Velvet Amethyst", Color(0xFF8B5CF6))
+                    )
+
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        themesList.forEach { (theKey, theLabel, primaryCol) ->
+                            val isChosen = user.favoriteTheme == theKey
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clip(RoundedCornerShape(14.dp))
+                                    .background(
+                                        if (isChosen) primaryCol.copy(alpha = 0.12f) else Color.White.copy(alpha = 0.02f)
+                                    )
+                                    .border(
+                                        width = 1.dp,
+                                        color = if (isChosen) primaryCol else Color.White.copy(alpha = 0.08f),
+                                        shape = RoundedCornerShape(14.dp)
+                                    )
+                                    .clickable {
+                                        viewModel.setFavoriteTheme(theKey)
+                                    }
+                                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                                ) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(20.dp)
+                                            .clip(CircleShape)
+                                            .background(primaryCol)
+                                    )
+                                    Text(
+                                        text = theLabel,
+                                        color = if (isChosen) StellarWhite else CyberGray,
+                                        fontSize = 13.sp,
+                                        fontWeight = if (isChosen) FontWeight.Bold else FontWeight.Medium
+                                    )
+                                }
+                                if (isChosen) {
+                                    Icon(
+                                        imageVector = Icons.Default.CheckCircle,
+                                        contentDescription = "Selected",
+                                        tint = primaryCol,
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                } else {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(18.dp)
+                                            .border(1.dp, CyberGray.copy(alpha = 0.4f), CircleShape)
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         item {
             Spacer(modifier = Modifier.height(48.dp))
         }

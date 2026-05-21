@@ -112,7 +112,8 @@ class FuturePathViewModel(application: Application) : AndroidViewModel(applicati
                 level = userProfile.value.level,
                 streak = userProfile.value.streak,
                 futureScore = userProfile.value.futureScore,
-                isPremium = userProfile.value.isPremium
+                isPremium = userProfile.value.isPremium,
+                favoriteTheme = userProfile.value.favoriteTheme
             )
             repository.saveProfile(profile)
             repository.runCareerSimulation(profile)
@@ -126,6 +127,14 @@ class FuturePathViewModel(application: Application) : AndroidViewModel(applicati
         viewModelScope.launch {
             val prof = userProfile.value.copy(isPremium = isPremium)
             repository.saveProfile(prof)
+        }
+    }
+
+    fun setFavoriteTheme(theme: String) {
+        viewModelScope.launch {
+            val prof = userProfile.value.copy(favoriteTheme = theme)
+            repository.saveProfile(prof)
+            com.example.ui.theme.ThemeSource.selectTheme(theme)
         }
     }
 
